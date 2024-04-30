@@ -24,5 +24,3 @@ if [ -n "$values_file" ]; then
 else
   helm template organization/template -f values.yaml > template.yaml
 fi
-
-cat template.yaml >> $GITHUB_OUTPUT

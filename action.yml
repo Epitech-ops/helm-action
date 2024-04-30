@@ -2,22 +2,23 @@
 name: 'Helm template'
 description: 'Install Helm, use a template and generate a yaml'
 inputs:
+  helm-url:
+    description: 'URL of the Helm template'
+    required: true
+  helm-user:
+    description: 'Username to use to access the Helm template'
+    required: true
+  helm-password:
+    description: 'Password to use to access the Helm template'
+    required: true
   values-file:
-    description: 'Optional custom values.yaml file'
+    description: 'Path to the optional values file'
     required: false
-  helm-org:
-    description: 'Optional custom Helm organization'
-    required: false
-  helm-chart:
-    description: 'Optional custom Helm chart'
-    required: false
-outputs:
-  template:
-    description: 'The generated yaml file'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.helm-url }}
+    - ${{ inputs.helm-user }}
+    - ${{ inputs.helm-password }}
     - ${{ inputs.values-file }}
-    - ${{ inputs.helm-org }}
-    - ${{ inputs.helm-chart }}
