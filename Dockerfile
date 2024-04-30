@@ -1,6 +1,6 @@
 FROM debian:bookworm-slim
 
-RUN apt install -y curl
+RUN apt-get update && apt-get install curl -y
 
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
