@@ -1,0 +1,23 @@
+# action.yml
+name: 'Helm template'
+description: 'Install Helm, use a template and generate a yaml'
+inputs:
+  values-file:
+    description: 'Optional custom values.yaml file'
+    required: false
+  helm-org:
+    description: 'Optional custom Helm organization'
+    required: false
+  helm-chart:
+    description: 'Optional custom Helm chart'
+    required: false
+outputs:
+  template:
+    description: 'The generated yaml file'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.values-file }}
+    - ${{ inputs.helm-org }}
+    - ${{ inputs.helm-chart }}
