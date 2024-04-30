@@ -8,13 +8,17 @@ This action uses helm to fetch a template and an optional values file to render 
 
 **Required** The URL where the Helm template can be downloaded from.
 
+### `helm-template`
+
+**Required** The name of the Helm template you wish to install.
+
 ### `helm-user`
 
-**Required** The username to use to access the Helm template.
+**Optional** The username to use to access the Helm template.
 
 ### `helm-password`
 
-**Required** The password to use to access the Helm template.
+**Optional** The password to use to access the Helm template.
 
 ### `values-file`
 
@@ -29,6 +33,7 @@ There are no output variables, but a `template.yaml` file is generated at root.
 uses: epitech-ops/helm-action@v1
 with:
   helm-url: 'https://raw.githubusercontent.com/Epitech-ops/helm-template/gh-pages/'
+  helm-template: 'helm-template'
   helm-user: ${{ vars.GHCR_USER }}
   helm-password: ${{ secrets.HELM_TEMPLATE_PAT }}
   values-file: 'values-github.yaml'

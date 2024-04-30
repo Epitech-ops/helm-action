@@ -5,12 +5,15 @@ inputs:
   helm-url:
     description: 'URL of the Helm template'
     required: true
+  helm-template:
+    description: 'Name of the Helm template'
+    required: true
   helm-user:
     description: 'Username to use to access the Helm template'
-    required: true
+    required: false
   helm-password:
     description: 'Password to use to access the Helm template'
-    required: true
+    required: false
   values-file:
     description: 'Path to the optional values file'
     required: false
@@ -19,6 +22,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.helm-url }}
+    - ${{ inputs.helm-template }}
     - ${{ inputs.helm-user }}
     - ${{ inputs.helm-password }}
     - ${{ inputs.values-file }}
