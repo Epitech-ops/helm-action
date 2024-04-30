@@ -29,6 +29,6 @@ There are no output variables, but a `template.yaml` file is generated at root.
 uses: epitech-ops/helm-action@v1
 with:
   helm-url: 'https://raw.githubusercontent.com/Epitech-ops/helm-template/gh-pages/'
-  helm-username: ${{ vars.GHCR_USER }}
+  helm-user: ${{ vars.GHCR_USER }}
   helm-password: ${{ secrets.HELM_TEMPLATE_PAT }}
   values-file: 'values-github.yaml'
