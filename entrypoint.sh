@@ -14,8 +14,10 @@ helm_password=$4
 values_file=$5
 
 if [ -z "$helm_user" ] || [ -z "$helm_password" ]; then
+  echo "Fetching the Helm repository in unauthenticated mode"
   helm repo add organization $helm_url
 else
+  echo "Fetching the Helm repository in authenticated mode"
   helm repo add organization $helm_url --username $helm_user --password $helm_password
 fi
 
