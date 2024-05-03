@@ -1,0 +1,15 @@
+name: Build Docker image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Build the Docker image
+    uses: epitech-ops/.github-private/.github/workflows/build-docker-image.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

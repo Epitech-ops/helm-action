@@ -19,7 +19,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/epitech-ops/helm-action:main'
   args:
     - ${{ inputs.helm-url }}
     - ${{ inputs.helm-template }}
