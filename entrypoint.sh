@@ -26,6 +26,7 @@ fi
 
 if [ -n "$debug" ] && [ "$debug" = "true" ]; then
   debug_option="--debug"
+  cat $values_file
 fi
 
 helm repo update
