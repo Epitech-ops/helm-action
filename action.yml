@@ -17,6 +17,9 @@ inputs:
   values-file:
     description: 'Path to the optional values file'
     required: false
+  debug:
+    description: 'Enable debug mode'
+    required: false
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/epitech-ops/helm-action:main'
@@ -26,3 +29,4 @@ runs:
     - ${{ inputs.helm-user }}
     - ${{ inputs.helm-password }}
     - ${{ inputs.values-file }}
+    - ${{ inputs.debug || "false" }}
